@@ -83,8 +83,10 @@
 (add-to-list 'auto-mode-alist '("\\.gohtml\\'" . html-mode))
 (add-hook 'go-mode-hook #'go-set-project)
 (add-hook 'go-mode-hook #'whitespace-turn-off)
-
 (after! evil
         (setq evil-ex-search-highlight-all nil)
                                         ;(setq evil-normal-state-cursor '(box "#EEF5DB"))
         (setq evil-insert-state-cursor '(box "#76B8ED")))
+
+(setq js2-strict-missing-semi-warning nil)
+(setq js2-missing-semi-one-line-override nil)

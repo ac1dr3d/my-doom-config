@@ -5,17 +5,6 @@
 
 (doom! :feature
       ;debugger          ; FIXME stepping through code, to help you add bugs
-       eval              ; run code, run (also, repls)
-       (evil +everywhere); come to the dark side, we have cookies
-       file-templates    ; auto-snippets for empty files
-       (lookup           ; helps you navigate your code and documentation
-        +devdocs         ; ...on devdocs.io online
-        +docsets)        ; ...or in Dash docsets locally
-       snippets          ; my elves. They type so I don't have to
-       spellcheck        ; tasing you for misspelling mispelling
-       (syntax-checker   ; tasing you for every semicolon you forget
-        +childframe)     ; use childframes for error popups (Emacs 26+ only)
-       workspaces        ; tab emulation, persistence & separate workspaces
 
        :completion
        (company          ; the ultimate code completion backend
@@ -25,13 +14,18 @@
       ;ido               ; the other *other* search engine...
       ;(ivy              ; a search engine for love and life
       ; +fuzzy)          ; enable fuzzy search backend for ivy
+       :checkers
+       spell       ; tasing you for misspelling mispelling
+       (syntax   ; tasing you for every semicolon you forget
+        +childframe)     ; use childframes for error popups (Emacs 26+ only)
 
        :ui
+       workspaces        ; tab emulation, persistence & separate workspaces
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
-       doom-modeline     ; a snazzy Atom-inspired mode-line
+       modeline     ; a snazzy Atom-inspired mode-line
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
-       evil-goggles      ; display visual hints when editing in evil
+       ophints ; display visual hints when editing in evil
       ;fci               ; a `fill-column' indicator
        hl-todo           ; highlight TODO/FIXME/NOTE tags
       ;modeline          ; snazzy, Atom-inspired modeline, plus API
@@ -49,21 +43,30 @@
        window-select     ; visually switch windows
 
        :editor
+       snippets          ; my elves. They type so I don't have to
+       file-templates    ; auto-snippets for empty files
+       (evil +everywhere); come to the dark side, we have cookies
        multiple-cursors  ; editing in many places at once
        parinfer          ; turn lisp into python, sort of
        rotate-text       ; cycle region at point between text candidates
+       fold ; basic code-folding support
 
        :emacs
        dired             ; making dired pretty [functional]
-       ediff             ; comparing files in Emacs
+       ;; ediff             ; comparing files in Emacs
        electric          ; smarter, keyword-based electric-indent
       ;eshell            ; a consistent, cross-platform shell (WIP)
-       hideshow          ; basic code-folding support
-       imenu             ; an imenu sidebar and searchable code index
-       term              ; terminals in Emacs
+       ;; imenu             ; an imenu sidebar and searchable code index
        vc                ; version-control and Emacs, sitting in a tree
 
+       :term
+       term              ; terminals in Emacs
+
        :tools
+       (lookup           ; helps you navigate your code and documentation
+        +devdocs         ; ...on devdocs.io online
+        +docsets)        ; ...or in Dash docsets locally
+       eval              ; run code, run (also, repls)
        editorconfig      ; let someone else argue about tabs vs spaces
       ;ein               ; tame Jupyter notebooks with emacs
       ;gist              ; interacting with github gists
